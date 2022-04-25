@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block title %} Contact Us {% endblock title %} {% block body %} {% if user.is_authenticated %}
+
+<div class="container">
+    <h1 class="text-center">Contact Us</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="mb-3 mt-0 pt-0">
+
+            <label for="exampleFormControlTextarea1" class="form-label"></label>
+            <textarea placeholder="Enter Your Message" name="desc" class="form-control text-success bg-dark" id="exampleFormControlTextarea1" rows="6"></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-success container">Submit</button>
+    </form>
+</div>
+{% else %}
+<div class="container">
+    <h1 class="text-center">Contact Us</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <div class="input-group mb-1 mt-4 ">
+            <span class="input-group-text bg-success text-dark border-dark ">Enter Your</span>
+            <input type="text" class="form-control bg-dark text-success border-success" name="name" placeholder="Name">
+        </div>
+        <div class="input-group mb-0 mt-2 ">
+
+            <span class="input-group-text bg-success text-dark border-dark ">Enter Your</span>
+            <input type="email" name="email" class="form-control bg-dark text-success border-success " placeholder="Email">
+        </div>
+
+        <div class="mb-3 mt-0 pt-0">
+            <label for="exampleFormControlTextarea1" class="form-label"></label>
+            <textarea placeholder="Enter Your Message" name="desc" class="form-control text-success bg-dark" id="exampleFormControlTextarea1" rows="6"></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-success container">Submit</button>
+    </form>
+</div>
+{%endif%} {% endblock body %}

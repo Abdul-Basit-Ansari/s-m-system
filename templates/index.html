@@ -1,0 +1,85 @@
+{% extends 'base.html' %} {% block homeactive %} active {% endblock homeactive %} {% block title %} Home {% endblock title %} {% block body %}
+<div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/media/slider/s1.jpg" style="height: 40rem;" class="bd-placeholder-img" width="100%" height="50%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <rect width="100%" height="50%" fill="#777"></rect>
+            </img>
+
+            <div class="container">
+                <div class="carousel-caption text-start">
+                    <h1>1st Step</h1>
+                    <p>Visit Signun Page And Create Account For Add Your Data.</p>
+                    <p><a class="btn btn-sm btn-primary" href="signup">Signup</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="/media/slider/s2.jpg" style="height: 40rem;" class="bd-placeholder-img" width="100%" height="50%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <rect width="100%" height="50%" fill="#777"></rect>
+            </img>
+
+
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>2nd Step</h1>
+                    <p>Login Your Account</p>
+                    <p><a class="btn btn-sm btn-primary" href="login">Login</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="/media/slider/s4.jpg" style="height: 40rem;" class="bd-placeholder-img" width="100%" height="50%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <rect width="100%" height="50%" fill="#777"></rect>
+            </img>
+
+
+            <div class="container">
+                <div class="carousel-caption text-end">
+                    <h1>3rd Step</h1>
+                    <p>Add Yor Data</p>
+                    <p><a class="btn btn-sm btn-primary" href="signup">Go To Signup</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+<button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<div class="p-5 my-4 bg-secondary border border-dark container rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Hi..!</h1>
+        <p class="col-md-8 fs-4">This website is designed to protect your data. If you have any complaints, please let us know. Thank you..</p>
+        <a class="btn btn-primary btn-lg" href="report" type="button">Report</a>
+    </div>
+</div>
+<div class="container">
+    <div class="col-5 w-30 d-inline-block">
+        <div class="h-100 p-5 bg-light border rounded-3">
+            <h2>Contact Us</h2>
+            <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
+            <a href="contactus" class="btn btn-outline-secondary" type="button">Contactus</a>
+        </div>
+    </div>
+    <div class="col-5 w-30 d-inline-block">
+        <div class="h-100 p-5 bg-light border rounded-3">
+            <h2>About</h2>
+            <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
+            <a href="about" class="btn btn-outline-secondary" type="button">About</a>
+        </div>
+    </div>
+</div>
+{% endblock body %}

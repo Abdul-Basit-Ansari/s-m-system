@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block title %} Login {% endblock title %} {% block loginactive %}active{% endblock loginactive %} {% block body %}
+
+<div class="container my-3 bg-secondary border-primary border rounded-1 py-3 px-5 ">
+    <h1 class="mb-5 text-center">Log In</h1>
+    <form method="post" action="">
+        {% csrf_token %}
+        <!-- <div class="row mb-3">
+            <div class="col-sm-5">
+                <input type="text" name='uname' placeholder="Enter Your User Name" class="form-control" id="inputEmail3">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-5">
+                <input type="password" name="password" placeholder="Enter Password" class="form-control" id="inputPassword2">
+            </div>
+        </div> -->
+
+        <div class="input-group mb-3 ">
+            <span class="input-group-text bg-success text-dark border-dark" id="basic-addon1 ">Enter</span>
+            <input type="text " class="form-control bg-dark text-success border-success " name="uname" placeholder="User Name" aria-label="Username " aria-describedby="basic-addon1 ">
+        </div>
+        <div class="input-group mb-3 ">
+            <span class="input-group-text bg-success text-dark border-dark " id="basic-addon1 ">Enter</span>
+            <input type="password" class="form-control bg-dark text-success  border-success " name="password" placeholder="Password" aria-label="Password " aria-describedby="basic-addon1 ">
+        </div>
+        <button type="submit " class="btn btn-success border-dark text-dark container my-3 ">Login</button>
+    </form>
+</div>
+{% endblock body %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block title %} Signup {% endblock title %} {% block signupactive %}active{% endblock signupactive %}{% block body %}
+<style>
+    .form-control::-webkit-input-placeholder {
+        color: #28A745;
+    }
+    
+    .form-control:-moz-placeholder {
+        color: #28A745;
+    }
+</style>
+<div class="container my-3 bg-secondary border border-primary px-5 pb-5 rounded-3">
+    <h1 class=" my-4 text-center ">Sign Up</h1>
+    <form action="signup " method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3 ">
+            <span class="input-group-text bg-success text-dark border-dark" id="basic-addon1 ">Enter</span>
+            <input type="text" class="form-control bg-dark text-success border-success" name="fname" placeholder="First Name" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3 ">
+            <span class="input-group-text bg-success text-dark border-dark " id="basic-addon1 ">Enter</span>
+            <input type="text" class="form-control bg-dark text-success border-success " name="lname" placeholder="Last Name " aria-label="Username " aria-describedby="basic-addon1 ">
+        </div>
+
+        <div class="input-group mb-3 ">
+            <input type="email" name="email" class="form-control bg-dark text-success border-success " placeholder="Email Address " aria-label="Email Address " aria-describedby="basic-addon2 ">
+            <span class="input-group-text bg-success text-dark border-dark " id="basic-addon2 ">@example.com</span>
+        </div>
+
+
+
+        <div class="input-group mb-3 ">
+            <input type="password" class="form-control bg-dark text-success border-success" name="pass1" placeholder="Create Password " aria-label="Create Password ">
+            <span class="input-group-text bg-success text-dark border-dark ">&</span>
+            <input type="password" name="pass2" class="form-control bg-dark text-success border-success " placeholder="Confrim Password" aria-label="Confrim Password ">
+        </div>
+        <div class="input-group">
+            <span class="input-group-text bg-success text-dark border-dark " id="basic-addon2 ">Create User Name & Enter Phone Number</span>
+            <input type="text" name="uname" aria-label="Username" placeholder="Create User Name" class="form-control bg-dark text-success border-success  ">
+            <input type="number" name="phone" aria-label="phonenumber " placeholder="Enter Phone Number" class="form-control bg-dark text-success border-success">
+        </div>
+        <button type="submit" class="btn btn-success border-dark text-dark container my-3 ">Submit</button>
+    </form>
+</div>
+{% endblock body %}

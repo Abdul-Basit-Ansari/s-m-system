@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% block title %} All Data {% endblock title %} {% block dataactive %} active {% endblock dataactive %} {% block body %} {% load humanize %} {% if user.is_authenticated %}
+<style>
+     ::-moz-selection {
+        /* Code for Firefox */
+        color: red;
+        background: black;
+    }
+    
+     ::selection {
+        color: red;
+        background: black;
+    }
+    
+    .r {
+        border-radius: 2rem;
+    }
+</style>
+<div class="container">
+
+    <h1 class="my-3 d-inline-block">Welcome {{user.username}}</h1>
+
+
+
+
+
+
+
+    <form method="get" action="" class="d-flex">
+        <input class="form-control me-2" name="search" type="search" placeholder="Enter First Name Or Last Name....." aria-label="Search">
+        <button class="btn btn-success" type="submit">Search</button>
+    </form>
+    {% for d in data %}
+
+    <div class="d-inline row">
+
+        <div class="card d-inline-block m-3 bg-secondary" style="width: 17rem;">
+            <img src="{{d.img.url}}" class="card-img-top" style="width: 15rem; height: 10rem;" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{d.fname|title}} {{d.lname|title}}</h5>
+
+                <p class="card-text">Class : {{d.stuclass}}</p>
+                <a href="/student/{{d.sno}}" class="btn btn-outline-dark container">Full Info</a>
+            </div>
+        </div>
+    </div>
+
+
+    {% endfor %}
+</div> {% endif %} {% endblock body %}
+
+<!-- <span class="badge bg-secondary">New</span> -->

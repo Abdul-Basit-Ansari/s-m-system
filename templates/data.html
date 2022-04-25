@@ -1,0 +1,169 @@
+{% extends 'base.html' %} {% block title %} Data {% endblock title %} {% block dataactive %} active {% endblock dataactive %} {% block body %} {% load humanize %} {% if user.is_authenticated %}
+<style>
+     ::-moz-selection {
+        /* Code for Firefox */
+        color: red;
+        background: black;
+    }
+    
+     ::selection {
+        color: red;
+        background: black;
+    }
+    
+    .r {
+        border-radius: 2rem;
+    }
+</style>
+<div class="container text-center">
+    {% for d in data %}
+
+
+    <img style="width: 20%;height: 20%;" class=" mt-5 mb-3 rounded-3 w-30 pr-0 border border-dark" src="{{d.img.url}}" alt=""></img>
+
+    <div class="container bg-secondary text-dark my-3 pt-4 rounded-3">
+
+        <div class=" bg-secondary text-center text-dark">
+            </td>
+            <table class="table my-3 border r borderdark  container">
+                <li style="list-style-type: none; margin-left: 90%;" class="nav-item dropdown d-inline  my-5">
+                    <a class="nav-link dropdown-toggle text-dark d-inline " href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">More</a>
+                    <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+
+                        <li><button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Details</button></li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li><a href="/isdelete/{{d.sno}}" type="button" class=" mb-3 dropdown-item">Delete</a></li>
+
+
+                    </ul>
+                </li>
+                <tr class="table-dark">
+
+                    <td class="border  border-dark text-dark"><strong>Jioning Time</strong></td>
+                    <td class="border border-dark text-dark"><strong>{{d.jiontime|naturaltime}}</strong></td>
+
+                </tr>
+                <tr class="table-dark mt-3">
+                    <td class="border bg-secondary border-dark text-dark"><strong>Roll No</strong></th>
+                        <td class="border bg-secondary border-dark text-dark"><strong>{{d.sno}}</strong></td>
+                        <!-- <th>First Name</th>
+                <th>Last Name</th>
+                <th>Father's Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Class</th>
+                <th>Section</th> -->
+
+                </tr>
+                <tr class="table-dark">
+                    <td class="border  border-dark text-dark"><strong>First Name</strong></td>
+                    <td class="border  border-dark text-dark"><strong>{{d.fname|title}}</strong></td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <td class="border bg-secondary border-dark text-dark"><strong>Last Name</strong></td>
+                    <td class="border bg-secondary border-dark text-dark"><strong>{{d.lname|title}}</strong></td>
+
+                </tr>
+                <tr class="table-dark">
+
+                    <td class="border  border-dark text-dark"><strong>Father Name</strong></td>
+                    <td class="border border-dark text-dark"><strong>{{d.father|title}}</strong></td>
+
+
+                </tr>
+                <tr class="table-dark">
+
+                    <td class="border border-dark bg-secondary text-dark"><strong>Phone Number</strong></td>
+                    <td class="border border-dark bg-secondary text-dark"><strong>{{d.phone|title}}</strong></td>
+
+
+                </tr>
+                <tr class="table-dark">
+
+                    <td class="border border-dark text-dark"><strong>Email</strong></td>
+                    <td class="border  border-dark text-dark"><strong>{{d.email}}</strong></td>
+
+
+                </tr>
+                <tr class="table-dark">
+
+                    <td class="border bg-secondary border-dark text-dark"><strong>Class</strong></td>
+
+                    <td class="border bg-secondary border-dark text-dark"><strong>{{d.stuclass|title}}</strong></td>
+
+                </tr>
+                <tr class="table-dark mb-4">
+
+                    <td class="border  border-dark text-dark"><strong>Section</strong></td>
+                    <td class="border border-dark text-dark"><strong>{{d.section|title}}</strong></td>
+
+                </tr>
+
+            </table>
+
+
+            <!-- Button trigger modal -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-dark">
+                            <h5 class="modal-title text-secondary" id="exampleModalLabel">Edit Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body  text-left bg-secondary">
+                            <form method="post" action="/editinfo" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+                                <span class="my-3">Add New Photo(optional)</span>
+                                <div class="input-group mb-3  ">
+                                    <input type="file" name="img" value="" class="form-control file input-group-text text-success bg-dark border-success" id="inputGroupFile01">
+                                </div>
+                                <div class="mb-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-success text-dark border-dark ">First and last name</span>
+                                        <input type="text" value="{{d.fname}}" name="fname" placeholder="First name" class="form-control  text-success bg-dark border-success">
+                                        <input type="text" value="{{d.lname}}" name="lname" placeholder="Last name" class="form-control  text-success bg-dark border-success">
+                                        <input type="hidden" name="sno" value="{{d.sno}}" id="sno">
+                                    </div>
+                                    <input type="text" value="{{d.father}}" name="father" class="form-control  text-success bg-dark border-success my-3" placeholder="Father's Name">
+
+                                    <input name="stuclass" value="{{d.stuclass}}" type="number" class="form-control mt-3 text-success bg-dark border-success" placeholder="Enter Class Name">
+                                    <input name="section" type="text" value="{{d.section}}" class="form-control mt-3 text-success bg-dark border-success" placeholder="Enter Section Name">
+
+
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" name="email" value="{{d.email}}" class="form-control  text-success bg-dark border-success my-3" placeholder="Email Adress" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="number" value="{{d.phone}}" name="phone" class="form-control  text-success bg-dark border-success" placeholder="Enter Phone Number">
+                                </div>
+
+
+
+
+
+
+                        </div>
+                        <div class="modal-footer bg-dark text-secondary">
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+</div> {% endif %} {% endblock body %}
+
+<!-- <span class="badge bg-secondary">New</span> -->
